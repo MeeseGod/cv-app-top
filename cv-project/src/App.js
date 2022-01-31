@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import WorkInfo from './components/WorkInfo';
+import EducationInfo from './components/EducationInfo';
+import GeneralInfo from './components/GeneralInfo';
 
 class App extends Component {
   constructor() {
@@ -6,7 +9,12 @@ class App extends Component {
   }
 
   render(){
-    return <h1>Hello!</h1>
+    return <div>
+    <h1>Hello!</h1>
+    <WorkInfo />
+    <EducationInfo />
+    <GeneralInfo />
+    </div>
   }
 }
 
