@@ -1,34 +1,56 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 
 class EducationInfo extends Component{
     constructor(){
-        super()
+        super();
         this.state = {
             highSchool : "",
             collegeUniversity : "",
-            additionalInfo: []
+            additionalInfo: [],
+            formVisible: false
+        };
+        this.handleFormVisibility = this.handleFormVisibility.bind(this);
+        this.showForm = this.showForm.bind(this);
+    }
+
+    handleFormVisibility(){
+        if(this.state.formVisible){
+            this.setState({
+                formVisible : false
+            })
+        }
+        else{
+            this.setState({
+                formVisible : true
+            })
         }
     }
 
-    Form(){
-        return <div>
-            <h2>Education Info</h2>
+    showForm(){
+        if(this.state.formVisible){
+        return <div className='formContainer'>
             <form>
-                <label>
-                    Highschool:
-                    <input type={"text"} name='highSchool'></input>
-                </label>
-                <label>
-                    College/Universty:
-                    <input type={"text"} name='collegeUniversity'></input>
-                </label>
+                <label>School Name:</label>
+                <input type={"text"}></input>
+                <label>Title of Study:</label>
+                <input type={"text"}></input>
+                <label>Date Started:</label>
+                <input type={"date"}></input>
+                <label>Date Finished:</label>
+                <input type={"date"}></input>
+                <input type={"submit"} value={"Submit"}/>
             </form>
         </div>
+        }
     }
 
     render(){
-        return <div> 
-            <this.Form />
+        let educationForm = this.showForm
+
+        return <div>
+            <h1>Education</h1>
+            <button onClick={this.handleFormVisibility}>+</button>
+            {educationForm()}
         </div>
     }
 }

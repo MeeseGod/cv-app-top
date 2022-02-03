@@ -5,29 +5,50 @@ class WorkInfo extends Component{
         super()
         this.state = {
             currentOccupation : "",
-            pastOccupations : []
+            pastOccupations : [],
+            formVisible: false
+        }
+        this.handleFormVisibility = this.handleFormVisibility.bind(this);
+        this.showForm = this.showForm.bind(this);
+    }
+
+    handleFormVisibility(){
+        if(this.state.formVisible){
+            this.setState({
+                formVisible : false
+            })
+        }
+        else{
+            this.setState({
+                formVisible : true
+            })
         }
     }
 
-    Form(){
-        return <div>
-            <h1>Work Info</h1>
+    showForm(){
+        if(this.state.formVisible){
+            return <div className='inputInformationForm'>
             <form>
-                <label>
-                    Current Occupation:
-                    <input type={"text"}></input>
-                </label>
-                <label>
-                    Past Occupation(s):
-                    <input type={"text"}></input>
-                </label>
+                <label>Employer:</label>
+                <input type={"text"}></input>
+                <label>Job Title</label>
+                <input type={"text"}></input>
+                <label>First Day of Employment:</label>
+                <input type={"date"}/>
+                <label>Last Day of Employment:</label>
+                <input type={"date"}/>
+                <input type={"submit"} value={"Submit"}/>
             </form>
         </div>
+        }
     }
 
     render(){
-        return <div> 
-            <this.Form />
+        let workForm = this.showForm;
+        return <div>
+            <h1>Work Experience</h1>
+            <button onClick={this.handleFormVisibility}>+</button>
+            {workForm()}
         </div>
     }
 }

@@ -7,26 +7,26 @@ class GeneralInfo extends Component{
             firstName : "",
             lastName: "",
             age : "",
+            formVisible: false
         }
     }
 
     Form(){
         return <div>
-            <h1>General Info</h1>
-            <form>
-                <label>
-                    First Name:
+            <h1>About You</h1>
+            <div>
+                <form>
+                    <label>Full Name:</label>
                     <input type={"text"}></input>
-                </label>
-                <label>
-                    Last Name: 
+                    <label>Address:</label>
                     <input type={"text"}></input>
-                </label>
-                <label>
-                    Age:
+                    <label>Phone Number:</label>
                     <input type={"text"}></input>
-                </label>
-            </form>
+                    <label>Email:</label>
+                    <input type="email"></input>
+                    <input type={"submit"} value={"Submit"}/>
+                </form>
+            </div>
         </div>
     }
 

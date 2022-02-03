@@ -1,0 +1,41 @@
+body{
+    background-color: blue;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=text]{
+    width: 200px;
+}
+
+input[type=submit]{
+    width:100px;
+}
+
+#mainContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#infoForm{
+    width: 30%;
+}
+
+#submittedInfo{
+    width: 70%;
+    animation: forwards;
+    animation-duration: 2s;
+    animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
