@@ -1,16 +1,27 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 
 class EducationInfo extends Component{
     constructor(){
         super();
         this.state = {
-            highSchool : "",
-            collegeUniversity : "",
-            additionalInfo: [],
-            formVisible: false
+            schoolName : "Bing",
+            titleOfStudy : "",
+            dateStarted: "",
+            dateFinished: "",
+            holdingObject: {},
+            completedInputs : []
         };
         this.handleFormVisibility = this.handleFormVisibility.bind(this);
         this.showForm = this.showForm.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
+    }
+
+    changeHandler(event){
+        let eventTarget = event.target.className
+        this.setState({
+            [eventTarget] : event.target.value
+        })
+        console.log(this.state);
     }
 
     handleFormVisibility(){
@@ -31,13 +42,13 @@ class EducationInfo extends Component{
         return <div className='formContainer'>
             <form>
                 <label>School Name:</label>
-                <input type={"text"}></input>
+                <input type={"text"} className='schoolName' onChange={this.changeHandler}></input>
                 <label>Title of Study:</label>
-                <input type={"text"}></input>
+                <input type={"text"} className='titleOfStudy' onChange={this.changeHandler}></input>
                 <label>Date Started:</label>
-                <input type={"date"}></input>
+                <input type={"date"} className='dateStarted' onChange={this.changeHandler}></input>
                 <label>Date Finished:</label>
-                <input type={"date"}></input>
+                <input type={"date"} className='dateFinished' onChange={this.changeHandler}></input>
                 <input type={"submit"} value={"Submit"}/>
             </form>
         </div>
